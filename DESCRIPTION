@@ -6,5 +6,5 @@ Authors@R: "Kirill Müller <krlmlr+r@mailbox.org> [aut, cre]"
 Description: Implements memory.size() and memory.limit() for POSIX systems.
 Depends:
     R (>= 3.1.0)
-License: GPL-v3
+License: GPL-3
 LazyData: true
