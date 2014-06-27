@@ -5,6 +5,8 @@
 \title{Report on Memory Allocation}
 \usage{
 memory.size(max = FALSE)
+
+memory.limit(size = NA)
 }
 \arguments{
 \item{max}{logical. If true the maximum amount of memory obtained from the

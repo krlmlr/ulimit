@@ -14,5 +14,9 @@
 #' a new limit, in Mb.
 #' @return Size in bytes
 #' @seealso \link[utils]{Memory-limits} for other limits.
+#' @export
 memory.size <- function(max = FALSE) round(.Call(C_memsize, max), 2L)
+
+#' @rdname memory.size
+#' @export
 memory.limit <- function(size = NA) trunc(.Call(C_memsize, size))
