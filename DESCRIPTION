@@ -1,7 +1,8 @@
 Encoding: UTF-8
 Package: ulimit
 Title: Enforce memory limits on POSIX systems
-Version: 0.0-1
+Version: 0.0-0
+Date: 2014-06-27
 Authors@R: "Kirill Müller <krlmlr+r@mailbox.org> [aut, cre]"
 Description: Implements memory.size() and memory.limit() for POSIX systems.
 Depends:
