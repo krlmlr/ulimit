@@ -13,4 +13,5 @@
 #'   Date: \tab 2014-06-27\cr
 #'   License: \tab GPL v3\cr
 #' }
+#' @useDynLib ulimit, .registration = TRUE, .fixes = "C_"
 NULL

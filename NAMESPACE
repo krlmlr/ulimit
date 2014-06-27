@@ -2,3 +2,4 @@
 
 export(memory.limit)
 export(memory.size)
+useDynLib(ulimit, .registration = TRUE, .fixes = "C_")
