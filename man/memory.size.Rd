@@ -25,6 +25,6 @@ and  \code{setrlimit64(2)} APIs are used.  On Windows, these calls are
 forwarded to the corresponding functions in the \code{utils} package.
 }
 \seealso{
-\link[utils]{Memory-limits} for other limits.
+\link[base]{Memory-limits} for other limits.
 }
 

@@ -13,7 +13,7 @@
 #' @param size numeric. If \code{NA} report the memory size, otherwise request
 #' a new limit, in Mb.
 #' @return Size in bytes
-#' @seealso \link[utils]{Memory-limits} for other limits.
+#' @seealso \link[base]{Memory-limits} for other limits.
 #' @export
 memory.size <- function(max = FALSE) round(.Call(C_memsize, max), 2L)
 
