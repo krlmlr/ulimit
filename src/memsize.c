@@ -43,8 +43,9 @@ SEXP memsize(SEXP ssize)
     setrlimit(RLIMIT_AS, &rlimit_as);
     getrlimit(RLIMIT_AS, &rlimit_as);
 
-    PROTECT(ans = allocVector(REALSXP, 1));
+    PROTECT(ans = allocVector(REALSXP, 2));
     REAL(ans)[0] = rlim_to_mem(rlimit_as.rlim_cur);
+    REAL(ans)[1] = rlim_to_mem(rlimit_as.rlim_max);
     UNPROTECT(1);
     return ans;
   } else
