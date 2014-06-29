@@ -1,9 +1,10 @@
-#' Report on Memory Allocation
+#' Query and set memory limits
 #'
-#' This function is used to manage the total memory allocation.  On POSIX
-#' systems, the \code{getrlimit64(2)} and  \code{setrlimit64(2)} APIs are used.
-#' On Windows, these calls are
-#' forwarded to \code{utils::\link[utils]{memory.limit}}.
+#' This function is used to manage the total memory allocation
+#' for the current session and for child processes.  On POSIX
+#' systems, the \href{http://linux.die.net/man/2/getrlimit}{\code{getrlimit64(2)} and  \code{setrlimit64(2)} APIs} are used.
+#' Support for Windows might become available in the future; in the meantime,
+#' use \code{utils::\link[utils]{memory.limit}}.
 #'
 #' @param size numeric. If \code{NA} report the memory size, otherwise request
 #' a new limit, in MiB.

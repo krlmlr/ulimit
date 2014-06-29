@@ -3,9 +3,11 @@
 \name{ulimit-package}
 \alias{ulimit}
 \alias{ulimit-package}
-\title{Title}
+\title{Enforce memory limits on POSIX systems}
 \description{
-Description
+This package provides a way to enforce memory limits for a
+  running R process on POSIX systems.  The function \code{\link{memory_limit}}
+  shows and optionally sets the limits on main memory.
 }
 \details{
 \tabular{ll}{
@@ -15,6 +17,11 @@ Description
   Date: \tab 2014-06-29\cr
   License: \tab GPL v3\cr
 }
+}
+\examples{
+\dontrun{
+# Limit available memory to 6000 GiB
+memory_limit(6000)}
 }
 \author{
 Kirill Müller
