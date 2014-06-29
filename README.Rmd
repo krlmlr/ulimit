@@ -1,4 +1,4 @@
-# ulimit
+# ulimit [![Build Status](https://travis-ci.org/krlmlr/ulimit.png?branch=master)](https://travis-ci.org/krlmlr/ulimit)
 
 When experimenting in an interactive R session, it's very easy to create a problem instance where the RAM just isn't quite enough to compute the solution.  (At least it happened to me on more than one occasion.)  A somewhat trivial example, but you get the idea:
 
