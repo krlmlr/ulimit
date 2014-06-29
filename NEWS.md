@@ -1,3 +1,5 @@
+- First implementation for getting and setting memory limits
+
 Version 0.0-1 (2014-06-27)
 ===
 
