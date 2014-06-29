@@ -39,7 +39,7 @@ Unless you're equipped with 64 GiB of RAM (or more), running the last two lines 
 
 This is the purpose of the function `memory.limit()` in the `utils`.  Unfortunately, it is implemented only for Windows -- users of POSIX systems are referred to the `ulimit` functionality of the shell.  There seems to be no way to limit the memory of an *already running* process; this also applies for RStudio sessions.
 
-The `ulimit` package attemts to fill this gap by providing an interface to the `getrlimit(2)` and `setrlimit(2)` APIs, which are also used when you execute the `ulimit` built-in in your `bash` shell.  Only a single function `memory_limit` is exported -- it allows querying and optionally setting the maximum amount of virtual memory available to the running process (and also to child processes).  If you add the line
+The `ulimit` package attemts to fill this gap by providing an interface to the [`getrlimit(2)` and `setrlimit(2)` APIs](http://linux.die.net/man/2/getrlimit), which are also used when you execute the `ulimit` built-in in your `bash` shell.  Only a single function `memory_limit` is exported -- it allows querying and optionally setting the maximum amount of virtual memory available to the running process (and also to child processes).  If you add the line
 
 
 ```r
