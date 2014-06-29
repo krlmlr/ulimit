@@ -3,4 +3,4 @@
 ^Makefile$
 ^NEWS\.md$
 ^NEWS\.md\.tmpl$
-^README\.Rmd$
+^\.travis\.yml$
