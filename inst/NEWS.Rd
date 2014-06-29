@@ -4,7 +4,7 @@
 \section{Changes in ulimit version 0.0-2 (2014-06-29)}{
   \itemize{
     \item Redesign API: Support only one function \code{memory_limits} that returns and
-      optionally sets memory limits in MB.  Both soft and hard limits are returned,
+      optionally sets memory limits in MiB.  Both soft and hard limits are returned,
       but (obviously) only the soft limit can be set.
   }
 }
