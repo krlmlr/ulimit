@@ -1,2 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^Makefile$
+^NEWS\.md$
+^NEWS\.md\.tmpl$
+^README\.Rmd$
