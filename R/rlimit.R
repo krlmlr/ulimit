@@ -2,7 +2,8 @@
 #'
 #' This function is used to manage the total memory allocation
 #' for the current session and for child processes.  On POSIX
-#' systems, the \href{http://linux.die.net/man/2/getrlimit}{\code{getrlimit64(2)} and  \code{setrlimit64(2)} APIs} are used.
+#' systems, the \href{http://linux.die.net/man/2/getrlimit}{\code{getrlimit64(2)} and  \code{setrlimit64(2)} APIs}
+#' with resource \code{RLIMIT_AS} are used.
 #' Support for Windows might become available in the future; in the meantime,
 #' use \code{utils::\link[utils]{memory.limit}}.
 #'
