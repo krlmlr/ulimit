@@ -10,7 +10,7 @@ memory_limit(size = NA)
 a new limit, in MiB.}
 }
 \value{
-Size in MiB.
+A named vector with the (new) soft and hard limits in MiB.
 }
 \description{
 This function is used to manage the total memory allocation.  On POSIX

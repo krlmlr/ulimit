@@ -7,7 +7,11 @@
 #'
 #' @param size numeric. If \code{NA} report the memory size, otherwise request
 #' a new limit, in MiB.
-#' @return Size in MiB.
+#' @return A named vector with the (new) soft and hard limits in MiB.
 #' @seealso \link[base]{Memory-limits} for other limits.
 #' @export
-memory_limit <- function(size = NA) .Call(C_memsize, size)
+memory_limit <- function(size = NA) {
+  limits <- .Call(C_memsize, as.numeric(size)[[1L]])
+  names(limits) <- c("soft", "hard")
+  limits
+}

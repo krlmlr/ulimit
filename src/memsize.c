@@ -31,28 +31,20 @@ SEXP memsize(SEXP ssize)
 
   int maxmem = NA_LOGICAL;
 
-  if(isLogical(ssize))
-    maxmem = asLogical(ssize);
-  else if(isReal(ssize)) {
+  struct rlimit rlimit_as;
+  getrlimit(RLIMIT_AS, &rlimit_as);
+
+  if (!ISNA(REAL(ssize)[0])) {
     double mem = asReal(ssize);
     rlim_t newmax = mem_to_rlim(mem);
-
-    struct rlimit rlimit_as;
-    getrlimit(RLIMIT_AS, &rlimit_as);
     rlimit_as.rlim_cur = newmax;
     setrlimit(RLIMIT_AS, &rlimit_as);
     getrlimit(RLIMIT_AS, &rlimit_as);
+  }
 
-    PROTECT(ans = allocVector(REALSXP, 2));
-    REAL(ans)[0] = rlim_to_mem(rlimit_as.rlim_cur);
-    REAL(ans)[1] = rlim_to_mem(rlimit_as.rlim_max);
-    UNPROTECT(1);
-    return ans;
-  } else
-    /*error(_("incorrect argument"))*/;
-
-  PROTECT(ans = allocVector(REALSXP, 1));
-  REAL(ans)[0] = NA_REAL;
+  PROTECT(ans = allocVector(REALSXP, 2));
+  REAL(ans)[0] = rlim_to_mem(rlimit_as.rlim_cur);
+  REAL(ans)[1] = rlim_to_mem(rlimit_as.rlim_max);
   UNPROTECT(1);
   return ans;
 }
