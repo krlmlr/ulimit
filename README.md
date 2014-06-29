@@ -1,5 +1,23 @@
 # ulimit [![Build Status](https://travis-ci.org/krlmlr/ulimit.png?branch=master)](https://travis-ci.org/krlmlr/ulimit)
 
+Limit R memory on POSIX systems (Linux, OS X, ...).
+
+## Installation
+
+```
+devtools::install_github("krlmlr/ulimit")
+```
+
+## Usage
+
+Execute the following to limit the memory available to R to 2000 MiB:
+
+```r
+ulimit::memory_limit(2000)
+```
+
+## Rationale
+
 When experimenting in an interactive R session, it's very easy to create a problem instance where the RAM just isn't quite enough to compute the solution.  (At least it happened to me on more than one occasion.)  A somewhat trivial example, but you get the idea:
 
 
