@@ -46,7 +46,7 @@ The `ulimit` package attemts to fill this gap by providing an interface to the [
 invisible(ulimit::memory_limit(6000))
 ```
 
-to your `.Rprofile`, only 6000 MiB will be available for each newly started R session, including RStudio sessions.  Now you are safeguarded against this kind of nuisance:
+to your `.Rprofile`, only 6000 MiB will be available for each newly started R session, including RStudio sessions.  (This would be a sensible setting for a computer with 8 GiB RAM.)  Now you are safeguarded against this kind of nuisance:
 
 
 
