@@ -1,6 +1,6 @@
 # ulimit [![Build Status](https://travis-ci.org/krlmlr/ulimit.png?branch=master)](https://travis-ci.org/krlmlr/ulimit)
 
-Limit R memory on POSIX systems (Linux, OS X, ...).
+Limit R memory on POSIX systems (Linux, [~~OS X~~](http://stackoverflow.com/q/3274385/946850), ...).
 
 ## Installation
 
