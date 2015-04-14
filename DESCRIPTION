@@ -13,3 +13,4 @@ LazyData: true
 Suggests: testthat,
     knitr
 VignetteBuilder: knitr
+GitHub: https://github.com/krlmlr/ulimit
