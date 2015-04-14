@@ -12,4 +12,6 @@
 #' # Limit available memory to 6000 GiB
 #' memory_limit(6000)}
 #' @useDynLib ulimit, .registration = TRUE, .fixes = "C_"
+# EXCLUDE COVERAGE START
 NULL
+# EXCLUDE COVERAGE END
