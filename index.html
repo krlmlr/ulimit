@@ -56,51 +56,7 @@
 <pre><code class="r">ulimit::memory_limit(2000)
 </code></pre>
 
-<h2>Rationale</h2>
-
-<p>When experimenting in an interactive R session, it&#39;s very easy to create a problem instance where the RAM just isn&#39;t quite enough to compute the solution.  (At least it happened to me on more than one occasion.)  A somewhat trivial example, but you get the idea:</p>
-
-<pre><code class="r"># No problem nowadays
-N &lt;- 1000
-dim(matrix(nrow = N, ncol = N))
-</code></pre>
-
-<pre><code>## [1] 1000 1000
-</code></pre>
-
-<pre><code class="r"># Got enough RAM?
-N &lt;- 10000
-dim(matrix(nrow = N, ncol = N))
-</code></pre>
-
-<pre><code>## [1] 10000 10000
-</code></pre>
-
-<pre><code class="r"># Probably not...
-N &lt;- 100000
-dim(matrix(nrow = N, ncol = N))
-</code></pre>
-
-<pre><code>## Error: Swapping a huge amount of memory. Machine unusable, please reboot
-</code></pre>
-
-<p>Unless you&#39;re equipped with 64 GiB of RAM (or more), running the last two lines will probably render your machine unusable for quite a while.  This would not happen if the memory available to R was restricted to a sensible value.</p>
-
-<p>For restricting memory, the function <code>memory.limit()</code> in the <code>utils</code> package is available.  Unfortunately, it is implemented only for Windows &ndash; users of POSIX systems are referred to the <code>ulimit</code> functionality of the shell.  There seems to be no way to limit the memory of an <em>already running</em> process; this also applies for RStudio sessions.</p>
-
-<p>The <code>ulimit</code> package attemts to fill this gap by providing an interface to the <a href="http://linux.die.net/man/2/getrlimit"><code>getrlimit(2)</code> and <code>setrlimit(2)</code> APIs</a>, which are also used when you execute the <code>ulimit</code> built-in in your <code>bash</code> shell.  Only a single function <code>memory_limit</code> is exported &ndash; it allows querying and optionally setting the maximum amount of virtual memory available to the running process (and also to child processes), this corresponds to the <code>RLIMIT_AS</code> resource of the aformentioned APIs.  If you add the line</p>
-
-<pre><code class="r">invisible(ulimit::memory_limit(6000))
-</code></pre>
-
-<p>to your <code>.Rprofile</code>, only 6000 MiB will be available for each newly started R session, including RStudio sessions.  (This would be a sensible setting for a computer with 8 GiB RAM.)  Now you are safeguarded against this kind of nuisance:</p>
-
-<pre><code class="r">N &lt;- 100000
-dim(matrix(nrow = N, ncol = N))
-</code></pre>
-
-<pre><code>## Error: cannot allocate vector of size 37.3 Gb
-</code></pre>
+<p>See also the <a href="http://krlmlr.github.io/ulimit">package documentation</a> and the small <a href="http://krlmlr.github.io/ulimit">vignette</a>.</p>
 
 
     <h2>Help topics</h2>
