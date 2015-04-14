@@ -1,3 +1,6 @@
+Version 0.0-3 (2015-04-15)
+===
+
 - Vignette
 - Full test coverage
 

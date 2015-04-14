@@ -1,8 +1,8 @@
 Encoding: UTF-8
 Package: ulimit
 Title: Enforce Memory Limits on POSIX Systems
-Version: 0.0-2
-Date: 2014-06-29
+Version: 0.0-3
+Date: 2015-04-15
 Authors@R: as.person("Kirill Müller <krlmlr+r@mailbox.org> [aut, cre]")
 Description: Provides a way to enforce memory limits for a running R process on
     POSIX systems.
