@@ -1,6 +1,6 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "ulimit: Limit R memory on POSIX systems"
+author: "Kirill Müller"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -9,50 +9,65 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+## Rationale
 
-## Vignette Info
+When experimenting in an interactive R session, it's very easy to create a problem instance where the RAM just isn't quite enough to compute the solution.  (At least it happened to me on more than one occasion.)  A somewhat trivial example, but you get the idea:
 
-Note the various macros within the `vignette` setion of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
 
-## Styles
 
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
 
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+```r
+# No problem nowadays
+N <- 1000
+dim(matrix(nrow = N, ncol = N))
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
-
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+```
+## [1] 1000 1000
 ```
 
-Also a quote using `>`:
+```r
+# Got enough RAM?
+N <- 10000
+dim(matrix(nrow = N, ncol = N))
+```
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+```
+## [1] 10000 10000
+```
+
+```r
+# Probably not...
+N <- 100000
+dim(matrix(nrow = N, ncol = N))
+```
+
+```
+## Error: Swapping a huge amount of memory. Machine unusable, please reboot
+```
+
+Unless you're equipped with 64 GiB of RAM (or more), running the last two lines will probably render your machine unusable for quite a while.  This would not happen if the memory available to R was restricted to a sensible value.
+
+For restricting memory, the function `memory.limit()` in the `utils` package is available.  Unfortunately, it is implemented only for Windows -- users of POSIX systems are referred to the `ulimit` functionality of the shell.  There seems to be no way to limit the memory of an *already running* process; this also applies for RStudio sessions.
+
+The `ulimit` package attemts to fill this gap by providing an interface to the [`getrlimit(2)` and `setrlimit(2)` APIs](http://linux.die.net/man/2/getrlimit), which are also used when you execute the `ulimit` built-in in your `bash` shell.  Only a single function `memory_limit` is exported -- it allows querying and optionally setting the maximum amount of virtual memory available to the running process (and also to child processes), this corresponds to the `RLIMIT_AS` resource of the aformentioned APIs.  If you add the line
+
+
+```r
+invisible(ulimit::memory_limit(6000))
+```
+
+to your `.Rprofile`, only 6000 MiB will be available for each newly started R session, including RStudio sessions.  (This would be a sensible setting for a computer with 8 GiB RAM.)  Now you are safeguarded against this kind of nuisance:
+
+
+
+
+```r
+N <- 100000
+dim(matrix(nrow = N, ncol = N))
+```
+
+```
+## Error: cannot allocate vector of size 37.3 Gb
+```
