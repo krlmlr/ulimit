@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>memory_limit. ulimit 0.0-2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">ulimit 0.0-2</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Query and set memory limits</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>memory_limit(size&nbsp;=&nbsp;NA)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>size</dt>
+      <dd>numeric. If <code>NA</code> report the memory size, otherwise request
+a new limit, in MiB.</dd>
+    </dl>
+    
+    <div class="Value">
+      <h2>Value</h2>
+
+      <p><dl>
+A named vector with the (new) soft and hard limits in MiB.
+</dl></p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p>This function is used to manage the total memory allocation
+for the current session and for child processes.  On POSIX
+systems, the <a href = 'http://linux.die.net/man/2/getrlimit'><code>getrlimit64(2)</code> and  <code>setrlimit64(2)</code> APIs</a>
+with resource <code>RLIMIT_AS</code> are used.
+Support for Windows might become available in the future; in the meantime,
+use <code>utils::<a href='http://www.inside-r.org/r-doc/utils/memory.size'>memory.limit</a></code>.</p>
+  
+    </div>
+      </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>memory_limit</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<a href='http://www.inside-r.org/r-doc/base/Memory-limits'>Memory-limits</a> for other limits.
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://getbootstrap.com">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

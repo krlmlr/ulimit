@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Index. ulimit 0.0-2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">ulimit 0.0-2</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <div class="row">
+  <div class="span8">
+    <h1>ulimit <a href="https://travis-ci.org/krlmlr/ulimit"><img src="https://travis-ci.org/krlmlr/ulimit.png?branch=master" alt="Build Status"/></a></h1>
+
+<p>Limit R memory on POSIX systems (Linux, <a href="http://stackoverflow.com/q/3274385/946850"><del>OS X</del></a>, &hellip;).</p>
+
+<h2>Installation</h2>
+
+<pre><code>devtools::install_github(&quot;krlmlr/ulimit&quot;)
+</code></pre>
+
+<h2>Usage</h2>
+
+<p>Execute the following to limit the memory available to R to 2000 MiB:</p>
+
+<pre><code class="r">ulimit::memory_limit(2000)
+</code></pre>
+
+<h2>Rationale</h2>
+
+<p>When experimenting in an interactive R session, it&#39;s very easy to create a problem instance where the RAM just isn&#39;t quite enough to compute the solution.  (At least it happened to me on more than one occasion.)  A somewhat trivial example, but you get the idea:</p>
+
+<pre><code class="r"># No problem nowadays
+N &lt;- 1000
+dim(matrix(nrow = N, ncol = N))
+</code></pre>
+
+<pre><code>## [1] 1000 1000
+</code></pre>
+
+<pre><code class="r"># Got enough RAM?
+N &lt;- 10000
+dim(matrix(nrow = N, ncol = N))
+</code></pre>
+
+<pre><code>## [1] 10000 10000
+</code></pre>
+
+<pre><code class="r"># Probably not...
+N &lt;- 100000
+dim(matrix(nrow = N, ncol = N))
+</code></pre>
+
+<pre><code>## Error: Swapping a huge amount of memory. Machine unusable, please reboot
+</code></pre>
+
+<p>Unless you&#39;re equipped with 64 GiB of RAM (or more), running the last two lines will probably render your machine unusable for quite a while.  This would not happen if the memory available to R was restricted to a sensible value.</p>
+
+<p>For restricting memory, the function <code>memory.limit()</code> in the <code>utils</code> package is available.  Unfortunately, it is implemented only for Windows &ndash; users of POSIX systems are referred to the <code>ulimit</code> functionality of the shell.  There seems to be no way to limit the memory of an <em>already running</em> process; this also applies for RStudio sessions.</p>
+
+<p>The <code>ulimit</code> package attemts to fill this gap by providing an interface to the <a href="http://linux.die.net/man/2/getrlimit"><code>getrlimit(2)</code> and <code>setrlimit(2)</code> APIs</a>, which are also used when you execute the <code>ulimit</code> built-in in your <code>bash</code> shell.  Only a single function <code>memory_limit</code> is exported &ndash; it allows querying and optionally setting the maximum amount of virtual memory available to the running process (and also to child processes), this corresponds to the <code>RLIMIT_AS</code> resource of the aformentioned APIs.  If you add the line</p>
+
+<pre><code class="r">invisible(ulimit::memory_limit(6000))
+</code></pre>
+
+<p>to your <code>.Rprofile</code>, only 6000 MiB will be available for each newly started R session, including RStudio sessions.  (This would be a sensible setting for a computer with 8 GiB RAM.)  Now you are safeguarded against this kind of nuisance:</p>
+
+<pre><code class="r">N &lt;- 100000
+dim(matrix(nrow = N, ncol = N))
+</code></pre>
+
+<pre><code>## Error: cannot allocate vector of size 37.3 Gb
+</code></pre>
+
+
+    <h2>Help topics</h2>
+
+    <h3></h3>
+    
+    
+    <ul class="index">
+        
+      <li>
+        <code><a href="memory_limit.html">memory_limit</a></code><br />Query and set memory limits</li>
+            
+      <li>
+        <code><a href="ulimit-package.html">ulimit-package</a></code>(ulimit)<br />Enforce memory limits on POSIX systems</li>
+    
+    </ul>
+  </div>
+  
+  <div class="span3 offset1">
+        
+    <h2>Dependencies</h2>
+    <ul>
+      <li><strong>Depends</strong>: </li>
+      <li><strong>Imports</strong>: </li>
+      <li><strong>Suggests</strong>: testthat</li>
+      <li><strong>Extends</strong>: </li>
+    </ul>
+    <h2>Authors</h2>
+    <ul>
+      <li><a href="mailto:krlmlr+r@mailbox.org">Kirill Müller</a> [aut, cre]</li>
+    </ul>
+
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://getbootstrap.com">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
