@@ -16,4 +16,4 @@ Execute the following to limit the memory available to R to 2000 MiB:
 ulimit::memory_limit(2000)
 ```
 
-See also the [package documentation](http://krlmlr.github.io/ulimit) and the small [vignette](http://krlmlr.github.io/ulimit).
+See also the [package documentation](http://krlmlr.github.io/ulimit) and the small [vignette](http://krlmlr.github.io/ulimit/vignettes/ulimit.html).
