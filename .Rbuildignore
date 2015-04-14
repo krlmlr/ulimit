@@ -5,3 +5,6 @@
 ^NEWS\.md\.tmpl$
 ^README\.Rmd$
 ^\.travis\.yml$
+^Makefile$
+^Makefile\.in$
+^makeR
