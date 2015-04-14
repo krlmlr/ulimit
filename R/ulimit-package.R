@@ -7,14 +7,6 @@
 #'   shows and optionally sets the limits on main memory.
 #' @author Kirill Müller
 #' @keywords package
-#' @details
-#' \tabular{ll}{
-#'   Package: \tab ulimit\cr
-#'   Type: \tab Package\cr
-#'   Version: \tab 0.0-2\cr
-#'   Date: \tab 2014-06-29\cr
-#'   License: \tab GPL v3\cr
-#' }
 #' @examples
 #' \dontrun{
 #' # Limit available memory to 6000 GiB
