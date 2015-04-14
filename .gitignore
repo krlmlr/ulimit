@@ -4,3 +4,4 @@
 src/*.o
 src/*.so
 /inst/web
+inst/doc
