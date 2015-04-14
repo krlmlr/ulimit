@@ -1,4 +1,4 @@
-# ulimit [![Build Status](https://travis-ci.org/krlmlr/ulimit.png?branch=master)](https://travis-ci.org/krlmlr/ulimit)
+# ulimit [![wercker status](https://app.wercker.com/status/57cc89a49512feba9d94346177f84b1f/s/master "wercker status")](https://app.wercker.com/project/bykey/57cc89a49512feba9d94346177f84b1f) [![codecov.io](https://codecov.io/github/krlmlr/ulimit/coverage.svg?branch=master)](https://codecov.io/github/krlmlr/ulimit?branch=master)
 
 Limit R memory on POSIX systems (Linux, [~~OS X~~](http://stackoverflow.com/q/3274385/946850), ...).
 
