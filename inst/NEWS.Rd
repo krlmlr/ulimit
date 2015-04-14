@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{News for Package 'ulimit'}
 \encoding{UTF-8}
+\section{Changes in ulimit version 0.0-3 (2015-04-15)}{
+  \itemize{
+    \item Vignette
+    \item Full test coverage
+  }
+}
 \section{Changes in ulimit version 0.0-2 (2014-06-29)}{
   \itemize{
     \item Redesign API: Support only one function \code{memory_limits} that returns and
