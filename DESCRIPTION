@@ -11,6 +11,6 @@ Depends:
 License: GPL-3
 LazyData: true
 Suggests: testthat,
-    knitr
+    knitr, rmarkdown
 VignetteBuilder: knitr
 GitHub: https://github.com/krlmlr/ulimit
