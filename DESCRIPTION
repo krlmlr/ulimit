@@ -6,10 +6,11 @@ Date: 2015-04-15
 Authors@R: as.person("Kirill Müller <krlmlr+r@mailbox.org> [aut, cre]")
 Description: Provides a way to enforce memory limits for a running R process on
     POSIX systems.
-Depends: 
+Depends:
     R (>= 3.1.0)
 License: GPL-3
 LazyData: true
+Imports: prettyunits
 Suggests: testthat,
     knitr, rmarkdown
 VignetteBuilder: knitr
