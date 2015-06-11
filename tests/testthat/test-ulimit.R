@@ -19,7 +19,7 @@ test_that("Memory limits are respected", {
   skip_on_cran()
   l <- memory_limit()
   on.exit(memory_limit(l[["soft"]]), add = TRUE)
-  memory_limit(256)
+  memory_limit(512)
   expect_equal(length(1:100000), 100000)
   expect_error(length(1:100000000), "allocate")
 })
