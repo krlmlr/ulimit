@@ -16,7 +16,6 @@ test_that("Memory limits can be set", {
 })
 
 test_that("Memory limits are respected", {
-  skip_on_cran()
   l <- memory_limit()
   on.exit(memory_limit(l[["soft"]]), add = TRUE)
   memory_limit(512)
@@ -25,7 +24,6 @@ test_that("Memory limits are respected", {
 })
 
 test_that("Memory limits below zero and infinity can be set", {
-  skip_on_cran()
   l <- memory_limit()
   on.exit(memory_limit(l[["soft"]]), add = TRUE)
   memory_limit(-10)
