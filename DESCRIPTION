@@ -3,7 +3,7 @@ Package: ulimit
 Title: Enforce Memory Limits on POSIX Systems
 Version: 0.0-3
 Date: 2015-04-15
-Authors@R: as.person("Kirill Müller <krlmlr+r@mailbox.org> [aut, cre]")
+Authors@R: person(given = "Kirill", family = "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
 Description: Provides a way to enforce memory limits for a running R process on
     POSIX systems.
 Depends: 
