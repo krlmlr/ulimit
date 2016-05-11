@@ -6,11 +6,14 @@ Date: 2015-04-15
 Authors@R: person(given = "Kirill", family = "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
 Description: Provides a way to enforce memory limits for a running R process on
     POSIX systems.
-Depends: 
+Depends:
     R (>= 3.1.0)
 License: GPL-3
 LazyData: true
-Suggests: testthat,
-    knitr, rmarkdown
+Suggests:
+    testthat,
+    knitr,
+    rmarkdown
 VignetteBuilder: knitr
 GitHub: https://github.com/krlmlr/ulimit
+RoxygenNote: 5.0.1
