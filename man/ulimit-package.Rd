@@ -12,7 +12,7 @@ This package provides a way to enforce memory limits for a
 }
 \examples{
 \dontrun{
-# Limit available memory to 6000 GiB
+# Limit available memory to 6000 MiB
 memory_limit(6000)}
 }
 \author{

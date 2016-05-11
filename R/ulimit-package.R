@@ -9,7 +9,7 @@
 #' @keywords package
 #' @examples
 #' \dontrun{
-#' # Limit available memory to 6000 GiB
+#' # Limit available memory to 6000 MiB
 #' memory_limit(6000)}
 #' @useDynLib ulimit, .registration = TRUE, .fixes = "C_"
 # EXCLUDE COVERAGE START
