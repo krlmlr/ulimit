@@ -1,3 +1,9 @@
+# UNMAINTAINED
+
+Use [`unix::rlimit_as()`](https://github.com/jeroen/unix) instead.
+
+---
+
 # ulimit [![wercker status](https://app.wercker.com/status/57cc89a49512feba9d94346177f84b1f/s/master "wercker status")](https://app.wercker.com/project/bykey/57cc89a49512feba9d94346177f84b1f) [![codecov.io](https://codecov.io/github/krlmlr/ulimit/coverage.svg?branch=master)](https://codecov.io/github/krlmlr/ulimit?branch=master)
 
 Limit R memory on POSIX systems (Linux, [~~OS X~~](http://stackoverflow.com/q/3274385/946850), ...).
@@ -22,4 +28,3 @@ See also the [package documentation](http://krlmlr.github.io/ulimit) and the sma
 ## Related
 
 [RAppArmor](https://github.com/jeroenooms/RAppArmor) has the `rlimit_as()` function and much, much more.
-
